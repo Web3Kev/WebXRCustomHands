@@ -1,50 +1,18 @@
-# React + TypeScript + Vite
+# Custom hands in R3F, XR
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This template provides a minimal setup to get a set of WebXR hands with a custom shader that looks like Meta's default hands.
 
-Currently, two official plugins are available:
+![Demo GIF](https://github.com/Web3Kev/WebXRCustomHands/public/demo.gif)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The model is the default model with a rewrap of its UV, so that they align from finger tips to wrist.
 
-## Expanding the ESLint configuration
+This enables us to apply a color gradient as well as an opacity gradient to "erase" the wrists.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+You can dynamically change the shader's uniforms like so :
 
-- Configure the top-level `parserOptions` property like this:
+main shader:
+`customShaderMaterialRef.current.uniforms.globalOpacity.value = eventOccurred ? 1 : 0;` 
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+outline :
+`outlineMaterialRef.current.uniforms.globalOpacity.value = eventOccurred ? 1 : 0;`
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
