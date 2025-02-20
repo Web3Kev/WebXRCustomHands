@@ -250,6 +250,8 @@ export const ShadedHand = forwardRef<Object3D, XRHandOptions>(({handedness}, ref
     )
     
     useFrame((state, delta, frame) => {
+      void state; 
+      void delta;
         update(frame);
     })
 
