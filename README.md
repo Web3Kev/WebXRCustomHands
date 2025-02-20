@@ -16,3 +16,4 @@ main shader:
 outline :
 `outlineMaterialRef.current.uniforms.globalOpacity.value = eventOccurred ? 1 : 0;`
 
+live link: https://webxr-custom-hands.vercel.app/
