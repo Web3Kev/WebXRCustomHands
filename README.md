@@ -3,6 +3,7 @@
 This template provides a minimal setup to get a set of WebXR hands with a custom shader that looks like Meta's default hands.
 
 ![demo](https://github.com/user-attachments/assets/cbd29356-8d52-48b2-a924-8175fa216782)
+![0220](https://github.com/user-attachments/assets/07662eb5-bec5-4901-9e15-80e44c4cc9c2)
 
 The model is the default model with a rewrap of its UV, so that they align from finger tips to wrist.
 
