@@ -17,3 +17,5 @@ outline :
 `outlineMaterialRef.current.uniforms.globalOpacity.value = eventOccurred ? 1 : 0;`
 
 live link: https://webxr-custom-hands.vercel.app/
+
+Open in Meta Quest https://www.oculus.com/open_url/?url=https%3A%2F%2Fwebxr-custom-hands.vercel.app
