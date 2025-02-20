@@ -2,7 +2,7 @@ import { Canvas } from '@react-three/fiber'
 import {createXRStore, TeleportTarget, XR, XROrigin  } from '@react-three/xr'
 import { Environment, Loader  } from '@react-three/drei'
 import { Suspense, useEffect, useState } from 'react'
-
+import { Analytics } from "@vercel/analytics/react"
 import './App.css'
 import { Handedness } from './enum'
 import { CustomHand } from './customHand'
@@ -54,6 +54,7 @@ function App() {
       <button onClick={() => store.enterAR()}>Enter AR</button>
       </div>
 
+      <Analytics/>
       <Loader/>
 
       <Canvas shadows  camera={{ position: [0, 1.2, 0], rotation:[Math.PI/30,0,0]  }} >
